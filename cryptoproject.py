@@ -39,6 +39,28 @@ for coin_data in data:
     coin = Crypto(name, symbol, value, marketcap, dailymove, dailyvolume)
     coins.append(coin)
 
-for coin in coins:
-    print(coin)
+#for coin in coins:
+    #print(coin)
+
+def Izberi_kovanec(coins):
+    izberi = input("Izberi kovanec(ticker ali ime): ").lower().strip()
+
+    if izberi == "exit":
+        return "exit"
+
+    for coin in coins:
+        if coin.name.lower() == izberi or coin.symbol.lower() == izberi:
+            print(coin)
+            return coin
+        
+    print("Kovanec ni najden. Poskusi znova.")
+    return None
+
+coin = None
+
+while coin is None:
+    coin = Izberi_kovanec(coins)
+
+
+    
 
